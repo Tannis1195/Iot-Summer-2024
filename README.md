@@ -13,7 +13,7 @@ Are you the type of person who most often forgets that plants need water? Turns 
   (Left unspecified as an exercise for the reader)
 - **Enough wires**
   (To rule out an electrician as a career path)
-- **1 Raspberry Pi Pico WH**
+- **1 Raspberry Pi Pico WH** <br />
   [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh), 109 SEK
 - **1 Micro servo TS90 / SG90 1.2 kg**
   [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg), 49 SEK
