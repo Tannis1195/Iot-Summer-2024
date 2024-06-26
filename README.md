@@ -22,7 +22,7 @@ Are you the type of person who most often forgets that plants need water? Turns 
 - 1 Ultrasonic distance sensor Hcsr04 (59sek,https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) 
 - 10 Kohm resistor (1sek, https://www.electrokit.com/motstand-kolfilm-0.25w-1kohm-1k)
 - 1 breadboard (69sek, https://www.electrokit.com/kopplingsdack-840-anslutningar)
-  [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)
+  ![Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)
   69 sek
 - 1 relay
 - 1 Recharcebel powerbank (99kr, https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik)
