@@ -43,12 +43,13 @@ Are you the type of person who most often forgets that plants need water? Turns 
 - **1 4000mAh powerbank**<br />
   (Unknown brand), ~100 SEK
 
-The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of 700kr
+The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **700 Sek**
 
 ## Computer setup
-During this project, all Micropython code was written in the Thonny IDE. I ran Thoony on a Surface Pro 7, which was connected to the micro USB port on the Pico. To get this working I did the following: 
+During this project, all MicroPython code was written in the Thonny IDE. I ran Thonny on a Surface Pro 7, which was connected to the Raspberry Pi Pico via its micro USB port. Here’s how I set it up:
+
 1. Downloaded and installed [Thonny](https://thonny.org/)
-2. Connect the Pico to the computer
+2. Hold down the BOOTSEL button (Located on the pico) while connecting the Pico to the computer (This engaged BOOTLOADER mode)
 3. Open Thonny
 4. Click **Run**
 5. Click **Select interpreter**
@@ -64,7 +65,7 @@ Note that it is mandatory to test out the software in the following way:
 4. Run the code by pressing **Run current script**
 5. If all went according to plan, you should expect a nice treat in the terminal :) 
 
-As there already exists an ample amount of guides on how to get Micropython installed on a micropython, I will not cover it in this tutorial (I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs))
+As there already exists an ample amount of guides on how to get Micropython installed on a Raspberry Pi Pico, I will not cover it in greater detail in this tutorial! I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs), which provides an excellent and detailed walkthrough! 
 ## Putting everything together
 ## Platform
 ## The code
