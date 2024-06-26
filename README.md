@@ -43,9 +43,28 @@ Are you the type of person who most often forgets that plants need water? Turns 
 - **1 4000mAh powerbank**<br />
   (Unknown brand), ~100 SEK
 
-The total cost of the entire project is difficult to accuratly estiamte as most of the used part are refurbished from old aurdino starter packs
+The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of 700kr
 
 ## Computer setup
+During this project, all Micropython code was written in the Thonny IDE. I ran Thoony on a Surface Pro 7, which was connected to the micro USB port on the Pico. To get this working I did the following: 
+1. Downloaded and installed [Thonny](https://thonny.org/)
+2. Connect the Pico to the computer
+3. Open Thonny
+4. Click **Run**
+5. Click **Select interpreter**
+6. In the dropdown list choose **MicroPython (Raspberry Pi Pico)**
+7. Click **Install or update firmware** and follow the directions given in the popup window
+8. Press **OK** and you are good to go!
+
+Note that it is mandatory to test out the software in the following way: 
+1. Start a new **.py** file in Thonny
+2. Enter the code: <br />
+`print ("Hello World")`
+3. Ensure that you are using the MicroPython (Raspberry Pi Pico) as your interpreter 
+4. Run the code by pressing **Run current script**
+5. If all went according to plan, you should expect a nice treat in the terminal :) 
+
+As there already exists an ample amount of guides on how to get Micropython installed on a micropython, I will not cover it in this tutorial (I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs))
 ## Putting everything together
 ## Platform
 ## The code
