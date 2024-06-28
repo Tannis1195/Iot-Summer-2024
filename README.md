@@ -65,9 +65,27 @@ Note that it is mandatory to test out the software in the following way:
 4. Run the code by pressing **Run current script**
 5. If all went according to plan, you should expect a nice treat in the terminal :) 
 
-As there already exists an ample amount of guides on how to get Micropython installed on a Raspberry Pi Pico, I will not cover it in greater detail in this tutorial! I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs), which provides an excellent and detailed walkthrough! 
+As ample guides exist on how to get Micropython installed on a Raspberry Pi Pico, I will not cover it in greater detail in this tutorial! I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs), which provides an excellent and detailed walkthrough! 
 ## Putting everything together
-## Platform
+
+### Power consumption 
+Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
+| Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
+|--------------------------------|----------------------------------------------------------|----------------|--------------|-------------------|
+| Pico in Deepsleep              | Pico in deepsleep mode (60 minutes between each of 24 readings) | 23 hours       | 0.25         | 5.75              |
+| Pico in action (With wifi on)  | Pico in operation (2-3 minutes for each of 24 instances) while wifi is on | 1 hour         | 45           | 225               |
+| Servo switch                   | Servo switch operation (1 activation)                    | 2 seconds      | 500          | 0.278             |
+| Water pump                     | Water pump operation (1 activation)                      | 1 second       | 100          | 0.03              |
+| Ultrasonic sensor HCSR0415     | Ultrasonic sensor operation (24 readings of water level) | 6 seconds      | 15           | 0.025             |
+| Powerbank Keep-Alive Device (active) | Powerbank wake-up pulse every 45 seconds                | 192 seconds    | 70           | 3.733             |
+| Powerbank Keep-Alive Device (idle) | Powerbank idle state                                    | ~24 hours      | 1            | 23.947            |
+| Soil moisture readings (per sensor) | Soil moisture sensor operation (24 readings per sensor) | 720 seconds    | 15           | 3 (per sensor)   |
+| DHT11 sensor                   | DHT11 sensor operation (24 readings of temperature and humidity) | 2.4 seconds    | 2.5          | 0.002             |
+
+If we sum these estimates up we land at around 300 (~265) mAh per day. Given that I have around 5000 mAh in powerbank (without recharge) this would indicate around 19 days of usage before having to recharge, which from experience seems probable but perhaps a bit optimistic.     
+
+
+## Platform 
 ## The code
 ## Transmitting the data / connectivity
 ## Presenting the data
