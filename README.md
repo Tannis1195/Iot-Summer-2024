@@ -9,58 +9,26 @@ While the project was completed over three weeks with sporadic effort, an averag
 Are you the type of person who most often forgets that plants need water? Turns out that I am, and sadly one too many cactuses has not lived to tell the tale. In plain text I'm horrible at ensuring that my green friends get the care and attention they deserve (And desperately need), therefore, it was more than time to automate myself out of the equation and give the plants a fair chance. Although this project has not dwelled as deep into network security as I initially had hoped, it has given me a lot of new insights into the realm of home automation and also gained a fascination with the relative simplicity and cheapness of deploying small IoT projects for home improvements.
 
 ## Material
-| Quantity | Item                               | Description                                                                                            | Price (SEK) |
-|----------|------------------------------------|--------------------------------------------------------------------------------------------------------|-------------|
-| Numerous | Legos                              | Just a random mix match of childhood legos                                                         | -           |
-| 1       | Male-male Wires                    | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st)         | 39          |
-| 1       | Male-female Wires                  | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)                   | 29          |
-| 1        | Raspberry Pi Pico WH               | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                                 | 109         |
-| 1        | Micro servo TS90 / SG90 1.2 kg     | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)               | 49          |
-| 1        | DHT11 sensor                       | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)                      | 49          |
-| 1        | Powerbank Keep-Alive Device        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)                    | 49          |
+| Quantity | Link                                                                                            | Price (SEK) |
+|----------|--------------------------------------------------------------------------------------------------|-------------|
+| Numerous | Just a random mix-match of childhood legos                                                         | -           |
+| 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | 39          |
+| 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)          | 29          |
+| 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                         | 109         |
+| 1        | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)        | 49          |
+| 1        | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)              | 49          |
+| 1        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)            | 49          |
+| 2        | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                          | 58 (total)  |
+| 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                 | 5           |
+| 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                            | 8           |
+| 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | 59          |
+| 1        | [10 Kohm Resistor](https://www.electrokit.com/motstand-kolfilm-0.25w-1kohm-1k)                   | 1           |
+| 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                          | 69          |
+| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
+| 1        | Just a standard no brand 4000mAh powerbank                                                                                                 | ~100        |
 
-| 2        | Soil moisture sensors              | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                                 | 58 (total)  |
-| 1        | Red LED                            | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                        | 5           |
-| 1        | Photoresistor                      | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                                    | 8           |
-| 1        | Ultrasonic distance sensor HCSR04   | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm)       | 59          |
-| 1        | 10 Kohm Resistor                   | [10 Kohm Resistor](https://www.electrokit.com/motstand-kolfilm-0.25w-1kohm-1k)                           | 1           |
-| 1        | Breadboard                         | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                                  | 69          |
-| 1        | 1000 mAh Rechargeable Powerbank             | [Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
-| 1        | 4000mAh Powerbank                  |                                                                               | ~100        |
 
-- **Numerous Legos**<br />
-  (Left unspecified as an exercise for the reader)
-- **Male-male Wires**<br />
-  [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st), 39 SEK
-  - **Male-female wires**<br />
-  [Male-female wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack), 29 SEK
-- **1 Raspberry Pi Pico WH** <br />
-  [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh), 109 SEK
-- **1 Micro servo TS90 / SG90 1.2 kg**<br />
-  [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg), 49 SEK
-- **1 DHT11 sensor**<br />
-  [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11), 49 SEK
-- **1 Powerbank Keep-Alive Device**<br />
-  [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device), 49 SEK
-- **1 4xAA battery box**<br />
-  [4xAA Battery Box](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd), 29 SEK
-- **2 Soil moisture sensors**<br />
-  [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor), 29 SEK/unit
-  Total: 58 SEK
-- **1 red led**<br />
-  [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd), 5 SEK
-- **1 photoresistor**<br />
-  [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm), 8 SEK
-- **1 Ultrasonic distance sensor HCSR04**<br />
-  [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm), 59 SEK
-- **10 Kohm resistor**<br />
-  [10 Kohm Resistor](https://www.electrokit.com/motstand-kolfilm-0.25w-1kohm-1k), 1 SEK
-- **1 breadboard**<br />
-  [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar), 69 SEK
-- **1 rechargeable powerbank**<br />
-  [Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik), 99 SEK
-- **1 4000mAh powerbank**<br />
-  (Unknown brand), ~100 SEK
+
 
 The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **700 Sek**
 
