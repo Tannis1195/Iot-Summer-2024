@@ -1,9 +1,9 @@
 # Tutorial on how to build an automatic plant watering system
-This project was planned and carried out by Jonathan Lannerås (jl225yi) in June 2024.
+Jonathan Lannerås (jl225yi) planned and carried out this project in June 2024.
 
-This project is based on Raspberry Pi pico WH which reads the current soil moisture of two different plants and pumps water from a reservoir when the soil gets too dry. In addition to this the measures: Room temperature, Sunlight, Room Humidity, and current water level in the reservoir and uploads it to an Adafruit.io dashboard through Wifi. The system is powered by a combination of a 4000mAh power bank and a 1000mAh solar-rechargeable power bank, providing a total of around 5000mAh and recharging when exposed to sunlight. 
+This project is based on Raspberry Pi pico WH which reads the current soil moisture of two different plants and pumps water from a reservoir when the soil gets too dry. In addition to this the measures: Room temperature, Sunlight, Room Humidity, and current water level in the reservoir and uploads it to an Adafruit.io dashboard through Wifi. The system is powered by a 4000mAh power bank and a 1000mAh solar-rechargeable power bank, providing a total of approximately 5000mAh and recharging when exposed to sunlight. 
 
-While the project was completed over three weeks with sporadic effort, an average person with a basic understanding of programming and electronics could complete it in approximately 10 hours.
+While the project was completed over three weeks with sporadic effort, an average person with a basic understanding of programming and electronics could likely complete it in approximately 10 hours.
 
 ## Objective
 Are you the type of person who most often forgets that plants need water? Turns out that I am, and sadly one too many cactuses has not lived to tell the tale. In plain text I'm horrible at ensuring that my green friends get the care and attention they deserve (And desperately need), therefore, it was more than time to automate myself out of the equation and give the plants a fair chance. Although this project has not dwelled as deep into network security as I initially had hoped, it has given me a lot of new insights into the realm of home automation and also gained a fascination with the relative simplicity and cheapness of deploying small IoT projects for home improvements.
@@ -54,7 +54,7 @@ Note that it is mandatory to test out the software in the following way:
 
 As ample guides exist on how to get Micropython installed on a Raspberry Pi Pico, I will not cover it in greater detail in this tutorial! I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs), which provides an excellent and detailed walkthrough! 
 ## Putting everything together
-
+![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/BreadBoard.png)
 ### Power consumption 
 Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
 | Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
@@ -69,7 +69,7 @@ Sadly, I could not get an accurate and long-term reading of power consumption, a
 | Soil moisture readings (per sensor) | Soil moisture sensor operation (24 readings per sensor) | 720 seconds    | 15           | 3 (per sensor)   |
 | DHT11 sensor                   | DHT11 sensor operation (24 readings of temperature and humidity) | 2.4 seconds    | 2.5          | 0.002             |
 
-If we sum these estimates up we land at around 300 (~265) mAh per day. Given that I have around 5000 mAh in powerbank (without recharge) this would indicate around 19 days of usage before having to recharge, which from experience seems probable but perhaps a bit optimistic.     
+If we sum these estimates up we land at around 300 (~265) mAh per day. Given that I have around 5000 mAh in powerbank (without recharge) this indicates around 19 days of usage before having to recharge, which from experience seems probable but optimistic.     
 
 
 ## Platform 
