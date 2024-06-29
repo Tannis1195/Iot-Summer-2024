@@ -30,7 +30,7 @@ Are you the type of person who most often forgets that plants need water? Turns 
 
 
 
-The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **700 Sek**
+The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **~ 700 Sek**
 
 ## Computer setup
 During this project, all MicroPython code was written in the Thonny IDE. I ran Thonny on a Surface Pro 7, which was connected to the Raspberry Pi Pico via its micro USB port. Here’s how I set it up:
