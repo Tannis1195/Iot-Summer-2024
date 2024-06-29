@@ -22,7 +22,7 @@ Are you the type of person who most often forgets that plants need water? Turns 
 | 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                 | 5           |
 | 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                            | 8           |
 | 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | 59          |
-| 1        | [10 Kohm Resistor](https://www.electrokit.com/motstand-kolfilm-0.25w-1kohm-1k)                   | 1           |
+| 1        | [220 ohm Resistor](https://se.rs-online.com/web/p/through-hole-resistors/0131176?gb=s)                  | 1           |
 | 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                          | 69          |
 | 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
 | 1        | Just a standard no brand 4000mAh powerbank                                                                                                 | ~100        |
