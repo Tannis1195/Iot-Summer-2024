@@ -54,7 +54,7 @@ Note that it is mandatory to test out the software in the following way:
 
 As ample guides exist on how to get Micropython installed on a Raspberry Pi Pico, I will not cover it in greater detail in this tutorial! I can, however, recommend [How to Setup a Raspberry Pi Pico and Code with Thonny](https://www.youtube.com/watch?v=_ouzuI_ZPLs), which provides an excellent and detailed walkthrough! 
 ## Putting everything together
-![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/BreadBoard.png)
+![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/BreadBoard.png)
 ### Power consumption 
 Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
 | Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
