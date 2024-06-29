@@ -12,6 +12,7 @@ Are you the type of person who most often forgets that plants need water? Turns 
 | Quantity | Link                                                                                            | Price (SEK) |
 |----------|--------------------------------------------------------------------------------------------------|-------------|
 | Numerous | Just a random mix-match of childhood legos                                                         | -           |
+| 1 | Just a large container to use as the water reservoir                                                       | -           |
 | 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | 39          |
 | 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)          | 29          |
 | 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                         | 109         |
@@ -73,6 +74,9 @@ If we sum these estimates up we land at around 300 (~265) mAh per day. Given th
 
 
 ## Platform 
+In this project, all data is transmitted and stored in [Adafruit.io](https://io.adafruit.com/). My reasoning for choosing Adafruit instead of other options was based on two factors: Cost and ease of use. First of all, Adafruit is free to a limited extent and given the relatively low amounts of data I'm transmitting I was able to operate within these limits. Secondly, the ease of sending data to Adafruit using API made this a very attractive alternative as I'm familiar with how APIs work and was comfortable sending the data this way. Additionally, the way Adafruit has chosen to structure incoming data using different "feeds" which then can be used within dashboards was very straightforward and user-friendly, which was greatly appreciated on my part. It should, however, be noted that I found the free version of Adafruit to be quite limited in terms of data analytics and data representation but given the rather basic nature of the project, the need for either is close to non-existent. It would, however, have been neat to run a forecasting model on the data to determine when at what time the next refill of the water reservoir is bound to happen. This can of course be presumed offline by downloading the uploaded data from Adafruit and inputting it into analytical software such as **R** or **Python**   <br />
+
+Furthermore, my decision to use Adafruit in this project was also driven by the fact that I wanted to try out a cloud-based approach to IoT, and this project seemed like a good starting point. Why I deemed this project appropriate because of the fairly non-sense data I'm transmitting, for instance, I'm not transmitting live audio and video of my living room, because if this data leaks or gets intercepted the attacker will only gain some very detailed info about a mismanaged houseplant (and I can live with that).   
 ## The code
 ## Transmitting the data / connectivity
 ## Presenting the data
