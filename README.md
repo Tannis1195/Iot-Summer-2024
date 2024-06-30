@@ -102,3 +102,22 @@ As previously mentioned, I'm using the Adafruit platform to both, store and visu
 
 I have structured the dashboard to quickly convey the data to the user. Firstly, for all measurements, I'm conveying the current state both numerically and graphically. Secondly, for the soil moisture, I'm also including a line graph highlighting how the soil moisture level has developed, giving a more detailed oversight on this data is obvious as the entire system is centered around ensuring the well-being and watering of the plants. Thirdly, I have also attached a terminal that displays the raw data that has been incorporated from the different feeds and when this data was uploaded to the dashboard, which provides the user with an understanding of the freshness of the data. Lastly, a terminal displaying information regarding watering events is also present in the dashboard, which informs a user regarding past watering events (Eg. if a plant has been watered or if a plant should have been watered but the reservoir was too low). All in all, I believe the dashboard provides adequate insight into the current situation of the plants, without drowning the user in data.  I mentioned earlier that I am not allowing Adafruit to send data back to the PICO meaning which explains why the dashboard lacks any interactive features, such as buttons or sliders, however, I do not feel like these would add much to the user experience in this case. 
 ## Finalizing the design
+After many hours, more than I want to admit, I was able to finalize my build. I must admit that I have seen more aesthetically pleasing lego builds in my life, however, I'm more of a function-oriented person, and I'm quite satisfied with how it works. 
+
+<div align="center">
+	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%208.jpg">
+</div>
+
+<div align="center">
+	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%2010.jpg">
+</div>
+
+<div align="center">
+	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%209.jpg">
+</div>
+
+<div align="center">
+	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%206.jpg">
+</div>
+
+Additionally, for me, this project is only viewed as an early version of an automated plant watering system and is something that I will continue to develop in the future. The currently assembled project is not home decor at its finest and is likely to be disabled soon as to reuse the parts in my V2! 
