@@ -16,26 +16,27 @@ The way the system is intended to work is depicted in the flowchart below:
 As seen in the flowchart the system consists of several parts and aims to both collect relevant data points, as well as continuously water the plants as needed. 
 
 ## Material
-| Quantity | Link                                                                                            | Price (SEK) |
-|----------|--------------------------------------------------------------------------------------------------|-------------|
-| Numerous | Just a random mix-match of childhood legos                                                         | -           |
-| 1 | Just a large container to use as the water reservoir                                                       | -           |
-| 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | 39          |
-| 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)          | 29          |
-| 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                         | 109         |
-| 1        | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)        | 49          |
-| 1        | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)              | 49          |
-| 1        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)            | 49          |
-| 2        | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                          | 58 (total)  |
-| 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                 | 5           |
-| 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                            | 8           |
-| 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | 59          |
-| 1        | [220 ohm Resistor](https://se.rs-online.com/web/p/through-hole-resistors/0131176?gb=s)                  | 1           |
-| 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                          | 69          |
-| 1        | [Battery Pack](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd)                         | 29          |
-| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
-| 1        | [Just a standard no brand 4000mAh powerbank](https://www.netonnet.se/art/hem-fritid/el-batterier/powerbank/on-powerbank-4000-mah-1a-blue/1032352.13728/) | ~50        |
-
+<div align="center">
+	| Quantity | Link                                                                                            | Price (SEK) |
+	|----------|--------------------------------------------------------------------------------------------------|-------------|
+	| Numerous | Just a random mix-match of childhood legos                                                         | -           |
+	| 1 | Just a large container to use as the water reservoir                                                       | -           |
+	| 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | 39          |
+	| 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)          | 29          |
+	| 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                         | 109         |
+	| 1        | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)        | 49          |
+	| 1        | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)              | 49          |
+	| 1        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)            | 49          |
+	| 2        | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                          | 58 (total)  |
+	| 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                 | 5           |
+	| 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                            | 8           |
+	| 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | 59          |
+	| 1        | [220 ohm Resistor](https://se.rs-online.com/web/p/through-hole-resistors/0131176?gb=s)                  | 1           |
+	| 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                          | 69          |
+	| 1        | [Battery Pack](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd)                         | 29          |
+	| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
+	| 1        | [Just a standard no brand 4000mAh powerbank](https://www.netonnet.se/art/hem-fritid/el-batterier/powerbank/on-powerbank-4000-mah-1a-blue/1032352.13728/) | ~50        |
+</div>
 
 
 
@@ -72,18 +73,19 @@ In real life, this wiring is a tad bit more chaotic but it is all wired the same
 ![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%203.jpg)
 ### Power consumption 
 Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
-| Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
-|--------------------------------|----------------------------------------------------------|----------------|--------------|-------------------|
-| Pico in Deepsleep              | Pico in deepsleep mode (60 minutes between each of 24 readings) | 23 hours       | 0.25         | 5.75              |
-| Pico in action (With wifi on)  | Pico in operation (2-3 minutes for each of 24 instances) while wifi is on | 1 hour         | 45           | 225               |
-| Servo switch                   | Servo switch operation (1 activation)                    | 2 seconds      | 500          | 0.278             |
-| Water pump                     | Water pump operation (1 activation)                      | 1 second       | 100          | 0.03              |
-| Ultrasonic sensor HCSR0415     | Ultrasonic sensor operation (24 readings of water level) | 6 seconds      | 15           | 0.025             |
-| Powerbank Keep-Alive Device (active) | Powerbank wake-up pulse every 45 seconds                | 192 seconds    | 70           | 3.733             |
-| Powerbank Keep-Alive Device (idle) | Powerbank idle state                                    | ~24 hours      | 1            | 23.947            |
-| Soil moisture readings (per sensor) | Soil moisture sensor operation (24 readings per sensor) | 720 seconds    | 15           | 3 (per sensor)   |
-| DHT11 sensor                   | DHT11 sensor operation (24 readings of temperature and humidity) | 2.4 seconds    | 2.5          | 0.002             |
-
+<div align="center">
+	| Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
+	|--------------------------------|----------------------------------------------------------|----------------|--------------|-------------------|
+	| Pico in Deepsleep              | Pico in deepsleep mode (60 minutes between each of 24 readings) | 23 hours       | 0.25         | 5.75              |
+	| Pico in action (With wifi on)  | Pico in operation (2-3 minutes for each of 24 instances) while wifi is on | 1 hour         | 45           | 225               |
+	| Servo switch                   | Servo switch operation (1 activation)                    | 2 seconds      | 500          | 0.278             |
+	| Water pump                     | Water pump operation (1 activation)                      | 1 second       | 100          | 0.03              |
+	| Ultrasonic sensor HCSR0415     | Ultrasonic sensor operation (24 readings of water level) | 6 seconds      | 15           | 0.025             |
+	| Powerbank Keep-Alive Device (active) | Powerbank wake-up pulse every 45 seconds                | 192 seconds    | 70           | 3.733             |
+	| Powerbank Keep-Alive Device (idle) | Powerbank idle state                                    | ~24 hours      | 1            | 23.947            |
+	| Soil moisture readings (per sensor) | Soil moisture sensor operation (24 readings per sensor) | 720 seconds    | 15           | 3 (per sensor)   |
+	| DHT11 sensor                   | DHT11 sensor operation (24 readings of temperature and humidity) | 2.4 seconds    | 2.5          | 0.002             |
+</div>
 If we sum these estimates up we land at around 300 (~265) mAh per day. Given that I have around 5000 mAh in powerbank (without recharge) this indicates around 19 days of usage before having to recharge, which from experience seems probable but optimistic.     
 
 
@@ -227,7 +229,8 @@ As previously mentioned, I'm using the Adafruit platform to both, store and visu
 <div align="center">
 	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Dash.png">
 </div>
-I have structured the dashboard to quickly convey the data to the user. Firstly, for all measurements, I'm conveying the current state both numerically and graphically. Secondly, for the soil moisture, I'm also including a line graph highlighting how the soil moisture level has developed, giving a more detailed oversight on this data is obvious as the entire system is centered around ensuring the well-being and watering of the plants. Thirdly, I have also attached a terminal that displays the raw data that has been incorporated from the different feeds and when this data was uploaded to the dashboard, which provides the user with an understanding of the freshness of the data. Lastly, a terminal displaying information regarding watering events is also present in the dashboard, which informs a user regarding past watering events (Eg. if a plant has been watered or if a plant should have been watered but the reservoir was too low). All in all, I believe the dashboard provides adequate insight into the current situation of the plants, without drowning the user in data.  I mentioned earlier that I am not allowing Adafruit to send data back to the PICO meaning which explains why the dashboard lacks any interactive features, such as buttons or sliders, however, I do not feel like these would add much to the user experience in this case. 
+I have structured the dashboard to quickly convey the data to the user. Firstly, for all measurements, I'm conveying the current state both numerically and graphically. Secondly, for the soil moisture, I'm also including a line graph highlighting how the soil moisture level has developed, giving a more detailed oversight on this data is obvious as the entire system is centered around ensuring the well-being and watering of the plants. Thirdly, I have also attached a terminal that displays the raw data that has been incorporated from the different feeds and when this data was uploaded to the dashboard, which provides the user with an understanding of the freshness of the data. Lastly, a terminal displaying information regarding watering events is also present in the dashboard, which informs a user regarding past watering events (Eg. if a plant has been watered or if a plant should have been watered but the reservoir was too low). All in all, I believe the dashboard provides adequate insight into the current situation of the plants, without drowning the user in data.  I mentioned earlier that I am not allowing Adafruit to send data back to the PICO meaning which explains why the dashboard lacks any interactive features, such as buttons or sliders, however, I do not feel like these would add much to the user experience in this case.
+
 ## Finalizing the design
 After many hours, more than I want to admit, I was able to finalize my build. I must admit that I have seen more aesthetically pleasing lego builds in my life, however, I'm more of a function-oriented person, and I'm quite satisfied with how it works. 
 
