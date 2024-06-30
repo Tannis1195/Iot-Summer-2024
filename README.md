@@ -92,6 +92,129 @@ In this project, all data is transmitted and stored in [Adafruit.io](https://io.
 
 Furthermore, my decision to use Adafruit in this project was also driven by the fact that I wanted to try out a cloud-based approach to IoT, and this project seemed like a good starting point. Why I deemed this project appropriate because of the fairly non-sense data I'm transmitting, for instance, I'm not transmitting live audio and video of my living room, because if this data leaks or gets intercepted the attacker will only gain some very detailed info about a mismanaged houseplant (and I can live with that).   
 ## The code
+The core function within my code, the beating heart so to speak, is my main loop. The main loop executes my entire program and loops indefinitely, initially, the main loop addresses data collection and the watering functionalities of the system, after this the function shifts focus towards the uploading of the collected data to Adafruit. Not that if the program fails to connect to the internet, it will simply discard the collected data and enter deepsleep, this was an active choice of mine as the core functionality of the system is not the uploading of plant data to the internet, it is the ensuring of having the plants watered.   
+
+```python
+def main():
+    while True:
+        alarm_Pin.value(0) # Sets alarm pin to off 
+        moist = plant_Monitor (sensorVCC,[left_Soil_Sensor,right_Soil_Sensor]) # Calculate the moisture level of the plants
+        plant_Left_Moist_Level = moist[0]
+        plant_Right_Moist_Level = moist[1]
+        plants =[
+            ["left",plant_Left_Moist_Level,50],
+            ["right",plant_Left_Moist_Level,50]
+        ]
+        water_Level, watering = watering_Of_Plants(plants) # Calculates the water level in the water tank and investigates if the plants need to be watered   
+        humidity_Temp = humidity_Temp_Tracker(25) # Calculates both Tempature and Humidity data
+        temperature = humidity_Temp[0]
+        humidity_Level = humidity_Temp[1]
+        sun_Light = light_Tracker(50) # Calculates the current light level
+        print("Moisture level of the Left plant: ", plant_Left_Moist_Level, "\n",
+              "Moisture level of the Right plant: ", plant_Right_Moist_Level, "\n",
+              "Temperature: ", temperature, "\n",
+              "Humidity: ", humidity_Level, "\n",
+              "Light Level: ", sun_Light, "\n",
+              "Water Level: ", water_Level, "\n",
+              "Watering events: ", watering)
+         
+        connected, wlan = connect_To_Wifi() # Try to connect to Wifi
+        if connected:
+            #Send data to Adafruit
+            send_To_Adafruit(plant_Left_Moist_Level, "moisture-plant-1")
+            plant_Left_Moist_Level=None #Delete from memory
+            send_To_Adafruit(plant_Right_Moist_Level, "moisture-plant-2")
+            plant_Right_Moist_Level=None #Delete from memory
+            send_To_Adafruit(water_Level, "water-tank")
+            water_Level=None #Delete from memory
+            send_To_Adafruit(temperature, "temperature")
+            temperature=None #Delete from memory
+            send_To_Adafruit(humidity_Level, "humidity")
+            humidity_Level=None #Delete from memory
+            send_To_Adafruit(sun_Light, "sun-light")
+            sun_Light=None #Delete from memory
+            if len(watering) != 0: # If a watering event has been recorded
+                for i in watering:
+                    send_To_Adafruit(i,"watering-event")
+                watering=None #Delete from memory
+            wlan.disconnect() # Disconnect from WIFI
+            time.sleep(1)
+            if wlan.isconnected(): #If unable to disconnect
+                print ("Disconnect has failed :(, It left me no choice")
+                machine.reset() # Hard reset, im not allowing the pico to keep wifi on under any circumstance
+            else:
+                print("Great success, we have disconnected!")
+                
+        else: # If unable to connect to Wifi
+           print("Connection was never an option :(, Data not delivered") # Data do not get uploaded or stored (Main objective is to ensure plant safety not Dashbord uplink)
+           alarm_Pin.value(1) # Turn on alarm pin to indicate error
+               
+        deepsleep(60*60*1000)#Puts the pico into deepsleep for 60min
+```
+In all honesty, the majority of the code is centered around the collection of data from different sensors this is code that already has ample literature online and therefore is quite boring to address but I do have three codes that are a bit more interesting to look at.
+### Deletion of outliers 
+Albit, using a function that cleans the data from outliers is not a revolutionary concept nor unusual to include, the function is however usually imported from an established library rather than written. This was the first time I wrote such a function myself and it could be fun to share, especially as it is beyond important when dealing with sketchy wiring and sensors which are prone to throw out a strange value more often than not. The function incorporates linear interpolation when calculating the quartile values of Qurtial 1 and 2, these are then used to calculate the interquartile range and the lower and upper bounds. These bounds act as borders, any values beyond them are excluded leading to a clean dataset.   
+```python
+def outlier_Deleter(value_Array):
+    value_Array = sorted(value_Array)
+    n = len(value_Array)
+    q1_Pos = (n + 1) / 4
+    q3_Pos = 3 * (n + 1) / 4
+    # This function is used to calculate the quartile values
+    def qurtile_calc(pos):
+        lower = value_Array[int(pos)-1]
+        upper = value_Array[int(pos)]
+        return lower + (pos%1)*(upper - lower)
+    q1 = qurtile_calc(q1_Pos) # quartile 1
+    q3 = qurtile_calc(q3_Pos)# quartile 1
+    iqr = q3-q1# inter quartile range
+    lower_Bound = q1 - (1.5*iqr)
+    upper_Bound = q3 + (1.5*iqr)
+    filtered_array = list(filter(lambda x:lower_Bound<=x<=upper_Bound,value_Array))
+```
+
+### Tracking Water level using a Ultrasonic Distance Sensor
+
+```python
+def water_Level_Reader(sample_Size):
+    result_Array = []
+    for i in range(sample_Size):
+        trig_SoundSensor.value(0)
+        time.sleep(0.005)
+        trig_SoundSensor.value(1)
+        time.sleep(0.00001)
+        trig_SoundSensor.value(0)
+        pulse_time = time_pulse_us(echo_SoundSensor, 1, 500*2*30) #Records the pulse time of the Ultrasonic Distance Sensor
+        if not (pulse_time < 0): # If the pulse time is more than 0 (Remove noise) 
+            result_Array.append(pulse_time)
+        
+    clean_result_Array = outlier_Deleter(result_Array) # Clean the pulse data from outliers 
+    result_Array = None # Remove result array to save on memory
+    average_pulse_time = sum(clean_result_Array)/len(clean_result_Array) # Calculate the average pulse time
+    cms = (average_pulse_time / 2) / 29.1 # Convert pulse time to centimeters (Distance between sensor and water level)
+    water_volume = -0.56 * cms + 9.4 # Convert centimeters to Water quant in DL (My tank is a slight cone shape therefore the need for a function) 
+    gc.collect()  # Delete nonsense data, Keep memory free!
+    return water_volume
+```
+
+### Running a  Micro servo TS90 / SG90 1.2 kg without a ADC pin 
+```python
+def set_switch(direction):
+    # As I ran out of ADC pins I had to run the servo manually instead of the normal way, not ideal but it gets the work done
+    hz = 50 # The Hz the server operates at
+    puls_Period = 1/hz #  The puls period at 50Hz is 20ms(0.02s)
+    if direction == "left":
+        servo_pos = 20 # Not going to 0 as to make sure I'm not over-shooting and damaging the servo (I'm not sure of the precision of controlling the servo this way)
+    else: # If the right plant is the one to be watered
+        servo_pos = 160 # Not going to 180 as to make sure I'm not over-shooting and damaging the servo (I'm not sure of the precision of controlling the servo this way)
+    pulse = 0.0005 + (servo_pos/180)*0.0019 # 0.5ms for 0 degree, 1.9ms + 0.5ms = 2.4ms for 180 degree
+    for _ in range(hz): ## the servo operates at 50Hz a second
+        water_Switch_pin.value(1)
+        time.sleep(pulse) 
+        water_Switch_pin.value(0)
+        time.sleep(puls_Period-pulse)
+    gc.collect()  # Delete nonsense data, Keep memory free!
+```
 
 ## Transmitting the data / connectivity
 I use the Adafruit platform to both store and visualize my data, given that I'm monitoring plants the need for all too frequent updates was deemed unnecessary therefore transmittions occur once every hour. In this project, I chose to use Wifi as the wireless protocol. The reasoning behind this was that the project was launched in my private residence which has WiFi, therefore the use of more sophisticated methods seemed a bit extreme especially as there was no TTPs coverage nor any helium hotspots where I lived, which means I would have needed to invest in LoRaWAN equipment, which in all honesty seemed overkill for this deployment. I mentioned earlier that one key selling point for using Adafruit was the ability to send data using APIs, this is something that is achieved using HTTP/HTTPS as a transport protocol, in greater detail, I'm using HTTP post requests to deliver my data to the Adafruit server. One drawback of sending the data to Adafruit in this manner is that one can only send one data value at a time, meaning that one can not group all data and send it through post request instead you have to send one post request for each data point you want to upload, which consumes more energy. On the topic of energy, it should be noted that my decision to use WiFi had a fairly significant impact on the battery, however, as the WiFi is disconnected directly after the transmission is finalized thereby, power consumption is minimized.  <br />
