@@ -171,6 +171,7 @@ def outlier_Deleter(value_Array):
     lower_Bound = q1 - (1.5*iqr)
     upper_Bound = q3 + (1.5*iqr)
     filtered_array = list(filter(lambda x:lower_Bound<=x<=upper_Bound,value_Array))
+    return filtered_array
 ```
 
 ### Tracking Water level using a Ultrasonic Distance Sensor
