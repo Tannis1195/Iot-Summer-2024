@@ -9,7 +9,10 @@ While the project was completed over three weeks with sporadic effort, an averag
 Are you the type of person who most often forgets that plants need water? Turns out that I am, and sadly one too many cactuses has not lived to tell the tale. In plain text I'm horrible at ensuring that my green friends get the care and attention they deserve (And desperately need), therefore, it was more than time to automate myself out of the equation and give the plants a fair chance. Although this project has not dwelled as deep into network security as I initially had hoped, it has given me a lot of new insights into the realm of home automation and also gained a fascination with the relative simplicity and cheapness of deploying small IoT projects for home improvements.
 
 The way the system is intended to work is depicted in the flowchart below: 
-![Flowchart](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/FlowChart.jpg)
+<div align="center">
+	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/FlowChart.jpg">
+</div>
+
 As seen in the flowchart the system consists of several parts and aims to both collect relevant data points, as well as continuously water the plants as needed. 
 
 ## Material
