@@ -126,7 +126,7 @@ After many hours, more than I want to admit, I was able to finalize my build. I 
 
 As I'm not exactly aware when the watering will take place I hard coded in that both plants needed water to be able to record the video below showcasing the system in action :) (The dedicated viewer can see that a little bit of water always escape in to the other plant, this is because the lego seal is not exactly submarine rated) 
 
-[Watering Session Video](https://youtu.be/nqmDZlCsAVM)
+[![Watering Session Video](https://img.youtube.com/vi/nqmDZlCsAVM/0.jpg)](https://www.youtube.com/watch?v=nqmDZlCsAVM)
 
 
 Additionally, for me, this project is only viewed as an early version of an automated plant watering system and is something that I will continue to develop in the future. The currently assembled project is not home decor at its finest and is likely to be disabled soon as to reuse the parts in my V2! 
