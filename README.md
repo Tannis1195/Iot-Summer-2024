@@ -16,7 +16,7 @@ The way the system is intended to work is depicted in the flowchart below:
 As seen in the flowchart the system consists of several parts and aims to both collect relevant data points, as well as continuously water the plants as needed. 
 
 ## Material
-<div align="center">
+
 	| Quantity | Link                                                                                            | Price (SEK) |
 	|----------|--------------------------------------------------------------------------------------------------|-------------|
 	| Numerous | Just a random mix-match of childhood legos                                                         | -           |
@@ -36,7 +36,7 @@ As seen in the flowchart the system consists of several parts and aims to both c
 	| 1        | [Battery Pack](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd)                         | 29          |
 	| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
 	| 1        | [Just a standard no brand 4000mAh powerbank](https://www.netonnet.se/art/hem-fritid/el-batterier/powerbank/on-powerbank-4000-mah-1a-blue/1032352.13728/) | ~50        |
-</div>
+
 
 
 
@@ -73,7 +73,7 @@ In real life, this wiring is a tad bit more chaotic but it is all wired the same
 ![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%203.jpg)
 ### Power consumption 
 Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
-<div align="center">
+
 	| Device                         | Operation Description                                    | Duration       | Current (mA) | Consumption (mAh) |
 	|--------------------------------|----------------------------------------------------------|----------------|--------------|-------------------|
 	| Pico in Deepsleep              | Pico in deepsleep mode (60 minutes between each of 24 readings) | 23 hours       | 0.25         | 5.75              |
@@ -85,7 +85,7 @@ Sadly, I could not get an accurate and long-term reading of power consumption, a
 	| Powerbank Keep-Alive Device (idle) | Powerbank idle state                                    | ~24 hours      | 1            | 23.947            |
 	| Soil moisture readings (per sensor) | Soil moisture sensor operation (24 readings per sensor) | 720 seconds    | 15           | 3 (per sensor)   |
 	| DHT11 sensor                   | DHT11 sensor operation (24 readings of temperature and humidity) | 2.4 seconds    | 2.5          | 0.002             |
-</div>
+
 If we sum these estimates up we land at around 300 (~265) mAh per day. Given that I have around 5000 mAh in powerbank (without recharge) this indicates around 19 days of usage before having to recharge, which from experience seems probable but optimistic.     
 
 
@@ -177,7 +177,7 @@ def outlier_Deleter(value_Array):
 ```
 
 ### Tracking Water level using an Ultrasonic Distance Sensor
-This is the function used to determine the current level of water in my water reservoir/tank, it uses a Ultrasonic Distance Sensor mounted over the reservoir. It works by measuring the time it takes for a pulse to hit the water and then bound back to the Sensor, then converting this pulse time to get the gap between the sensor and water in centimeters. When the gap is determined I use this information to determine how much water I got in the reservoir, if there is no gap between water and sensor I got 9,4 dl and for every centimeter of the gap, the amount decreases by 0.56 DL meaning that when the gap is 16,8 cm the reservoir is empty!   
+This is the function used to determine the current level of water in my water reservoir/tank, it uses an Ultrasonic Distance Sensor mounted over the reservoir. It works by measuring the time it takes for a pulse to hit the water and then bound back to the Sensor, then converting this pulse time to get the gap between the sensor and water in centimeters. When the gap is determined I use this information to determine how much water I got in the reservoir, if there is no gap between water and sensor I got 9,4 dl and for every centimeter of the gap, the amount decreases by 0.56 DL meaning that when the gap is 16,8 cm the reservoir is empty!   
 ```python
 def water_Level_Reader(sample_Size):
     result_Array = []
