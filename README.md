@@ -1,7 +1,7 @@
 # Tutorial on how to build an automatic plant watering system
 Jonathan Lannerås (jl225yi) planned and carried out this project in June 2024.
 
-This project is based on Raspberry Pi pico WH which reads the current soil moisture of two different plants and pumps water from a reservoir when the soil gets too dry. In addition to this the measures: Room temperature, Sunlight, Room Humidity, and current water level in the reservoir and uploads it to an Adafruit.io dashboard through Wifi. The system is powered by a 4000mAh power bank and a 1000mAh solar-rechargeable power bank, providing a total of approximately 5000mAh and recharging when exposed to sunlight. 
+This project is based on Raspberry Pi pico WH which reads the current soil moisture of two different plants and pumps water from a reservoir when the soil gets too dry. In addition to this, it measures: Room temperature, Sunlight, Room Humidity, and current water level in the reservoir and uploads it to an Adafruit.io dashboard through Wifi. The system is powered by a 4000mAh power bank and a 1000mAh solar-rechargeable power bank, providing a total of approximately 5000mAh and recharging when exposed to sunlight. 
 
 While the project was completed over three weeks with sporadic effort, an average person with a basic understanding of programming and electronics could likely complete it in approximately 10 hours.
 
@@ -69,7 +69,7 @@ The development of the project went both very well and very badly at the same ti
 ### Wiring 
 The wiring diagram of the project is displayed below:
 ![Wireing diagram](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/BreadBoard.png)
-In real life, this wiring is a tad bit more chaotic but it is all wired the same. The reason for my wiring work closely resembling a birds nest is that I lacked appropriate lengthed wires which lead to a lot of suboptimal decisions, also the entire structure is built out of a miss match of old Lego I had laying around so the ability to plan and structure a sensible wiring approach was difficult. Thirdly, I'm also not that good at wiring so I'm certain that a more skilled practitioner who had access to the same supplies would have done more "presentable" work, but hey it works, and that's all that matters.
+In real life, this wiring is a tad bit more chaotic but it is all wired the same. The reason for my wiring work closely resembling a birds nest is that I lacked appropriate lengthed wires which led to a lot of suboptimal decisions, also the entire structure is built out of a miss match of old Lego I had laying around so the ability to plan and structure a sensible wiring approach was difficult. Thirdly, I'm also not that good at wiring so I'm certain that a more skilled practitioner who had access to the same supplies would have done more "presentable" work, but hey it works, and that's all that matters.
 ![Wireing](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%203.jpg)
 ### Power consumption 
 Sadly, I could not get an accurate and long-term reading of power consumption, as I lacked access to the correct equipment. I tried to measure the current and voltage of the PICO using a multimeter and then calculate power consumption through (W = A*V), however, I was unable to get an accurate current reading of the PICO. I also tried measuring the power consumption through a wall-outlet power meter, this particular meter measures in KWh, and due to the fairly low consumption of the pico it was unable to get a reading. However, if we run some quick guesstimate for a day:
