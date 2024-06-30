@@ -127,7 +127,9 @@ After many hours, more than I want to admit, I was able to finalize my build. I 
 As I'm not exactly aware when the watering will take place I hard coded in that both plants needed water to be able to record the video below showcasing the system in action :) (The dedicated viewer can see that a little bit of water always escape in to the other plant, this is because the lego seal is not exactly submarine rated) 
 
 <div align="center">
-	<img src="https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/Plant%20Video.mp4">
+    <video width="640" height="480" controls>
+        <source src="https://raw.githubusercontent.com/Tannis1195/Iot-Summer-2024/main/Material/Plant%20Video.mp4" type="video/mp4">
+    </video>
 </div>
 
 
