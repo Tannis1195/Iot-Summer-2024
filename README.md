@@ -199,7 +199,7 @@ def water_Level_Reader(sample_Size):
     gc.collect()  # Delete nonsense data, Keep memory free!
     return water_volume
 ```
-
+For the interested reader, I have also submitted the complete code [Here](https://github.com/Tannis1195/Iot-Summer-2024/blob/main/Material/main.py).
 ### Running a  Micro servo TS90 / SG90 1.2 kg without a ADC pin
 The last bit of code I would like to showcase was about to be my show stopper. When having installed all the equipment I chose to expend a bit on my scoop and create a switch that regulated the water flow, however, I had a problem, because I wanted to control this switch using a servo and I had run out of ADC pins which on usually use to run servos. However, after a bit of tinkering and searching, I learned that one can use the normal GPIO pins to run a servo by mimicking the correct 50hz signal, which was quite an intriguing task. So on a high level, you determine how long a pulse needs to be (20ms in this case, 1/operating frequency), then you figure out how long of this pulse the value should be high and how long it should be low, then you run this pulse for the desired frequency (in this case 50hz, which the servo operates at). As you can see I chose not to run my servo to the extremes (0 and 180) as I did not want to risk damaging the servo if the calculations were off and the servo ended up outside the operating range.   
 ```python
