@@ -155,7 +155,7 @@ def water_distribution (plant):
     pump_relay.value(0)
     time.sleep(2) # Ensure all water is through
 
-# This function is used to controll the servo which regulates to which plant the water flows
+# This function is used to control the servo which regulates to which plant the water flows
 def set_switch(direction):
     # As I ran out of ADC pins i had to run the servo manually instead of the normal way, not ideal but it gets the work done
     hz = 50 # The Hz the server operates at
@@ -202,8 +202,8 @@ def light_Tracker(sample_Size):
     result_Array = None #Removes old array to save on memory
     curr_Val = sum(clean_result_Array)/len(clean_result_Array) # Calculate mean
     
-    dark_Value  = 50000 # The darkest value I have recorded in my room was 45000
-    sun_Value = 100 # The brights value I have recorded in my room was 300
+    dark_Value  = 100 # The darkest value I have recorded in my room was 300
+    sun_Value = 50000 # The brights value I have recorded in my room was 45000
     percent = (curr_Val - dark_Value) * (100) / (sun_Value - dark_Value) # Convert to a scale 0-100
     gc.collect()  # Delete nonsense data, Keep memory free!
     return round(percent,2)
