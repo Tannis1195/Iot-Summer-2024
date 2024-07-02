@@ -17,30 +17,33 @@ As seen in the flowchart the system consists of several parts and aims to both c
 
 ## Material
 
-| Quantity | Link                                                                                            | Price (SEK) |
-|----------|--------------------------------------------------------------------------------------------------|-------------|
-| Numerous | Just a random mix-match of childhood legos                                                         | -           |
-| 1 | Just a large container to use as the water reservoir                                                       | -           |
-| 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | 39          |
-| 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)          | 29          |
-| 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                         | 109         |
-| 1        | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)        | 49          |
-| 1        | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)              | 49          |
-| 1        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)            | 49          |
-| 2        | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                          | 58 (total)  |
-| 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                                 | 5           |
-| 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                            | 8           |
-| 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | 59          |
-| 1        | [220 ohm Resistor](https://se.rs-online.com/web/p/through-hole-resistors/0131176?gb=s)                  | 1           |
-| 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                          | 69          |
-| 1        | [Battery Pack](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd)                         | 29          |
-| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | 99          |
-| 1        | [Just a standard no brand 4000mAh powerbank](https://www.netonnet.se/art/hem-fritid/el-batterier/powerbank/on-powerbank-4000-mah-1a-blue/1032352.13728/) | ~50        |
+| Quantity | Component/Link                                                                 | Use Case                                             | Price (SEK) |
+|----------|--------------------------------------------------------------------------------|------------------------------------------------------|-------------|
+| Numerous | Just a random mix-match of childhood legos                                      | Used to build the structure of the system            | -           |
+| 1        | Just a large container to use as the water reservoir                            | Used as a water reservoir                            | -           |
+| 1        | [Male-male Wires](https://www.electrokit.com/kopplingstrad-byglar-for-kopplingsdack-mjuka-65st) | Used to connect components                           | 39          |
+| 1        | [Male-female Wires](https://www.electrokit.com/labsladd-1-pin-hane-hona-150mm-10-pack)           | Used to connect components                           | 29          |
+| 1        | [Raspberry Pi Pico WH](https://www.electrokit.com/raspberry-pi-pico-wh)                        | The microcontroller used to handle all logic of the system | 109         |
+| 1        | [Micro servo TS90 / SG90 1.2 kg](https://www.electrokit.com/micro-servo-ts90-sg90-1.2kg)       | Micro servo used to control the water switch         | 49          |
+| 1        | [DHT11 Sensor](https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11)             | Used to measure temperature and humidity             | 49          |
+| 1        | [Powerbank Keep-Alive Device](https://www.electrokit.com/powerbank-keep-alive-device)          | Used to keep the powerbank from shutting off         | 49          |
+| 2        | [Soil Moisture Sensor](https://www.electrokit.com/jordfuktighetssensor)                        | Used to measure the soil moisture of the plants      | 58 (total)  |
+| 1        | [Red LED](https://www.electrokit.com/led-5mm-rod-diffus-1500mcd)                               | Used as an alarm to signal that the system failed to connect to Wi-Fi | 5           |
+| 1        | [Photoresistor](https://www.electrokit.com/fotomotstand-cds-4-7-kohm)                         | Used to measure light level                          | 8           |
+| 1        | [Ultrasonic Distance Sensor](https://www.electrokit.com/avstandsmatare-ultraljud-hc-sr04-2-400cm) | Used to measure water level in the water reservoir  | 59          |
+| 1        | [220 ohm Resistor](https://se.rs-online.com/web/p/through-hole-resistors/0131176?gb=s)                 | Used for a voltage divider alongside the photoresistor | 1           |
+| 1        | [Breadboard](https://www.electrokit.com/kopplingsdack-840-anslutningar)                         | Used to connect the different components together    | 69          |
+| 1        | [Relay](https://www.electrokit.com/relakort-5v-opto-isolerat)                         | Used to control the water pump                       | 49          |
+| 1        | [Water Pump](https://www.electrokit.com/drankbar-pump-3v)                         | Used to pump water from the reservoir to the plants (Mine is 5V, but could only find a 3V; I expect similar results) | 45          |
+| 1        | [Battery Pack](https://www.electrokit.com/batterihallare-4xaa-box-brytare-sladd)                       | Used to power the water pump (The servo and the water pump could not be on the same circuit due to the servo acting up when the pump drew power) | 29          |
+| 1        | [1000 mAh Rechargeable Powerbank](https://www.dormy.com/sv/varumarken/dormy/powerbank-solar-charger-14282044fik) | Used to recharge the main powerbank                  | 99          |
+| 1        | [Just a standard no-brand 4000mAh powerbank](https://www.netonnet.se/art/hem-fritid/el-batterier/powerbank/on-powerbank-4000-mah-1a-blue/1032352.13728/) | Used to power the breadboard and all components connected to it | ~50         |
 
 
 
 
-The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **~700 Sek**
+
+The total cost of the entire project is difficult to accurately estimate as most of the used parts are refurbished from old Aurdino starter packs, but after finding most parts (or similar) I have calculated an estimated cost of **~800 Sek**
 
 ## Computer setup
 During this project, all MicroPython code was written in the Thonny IDE. I ran Thonny on a Surface Pro 7, which was connected to the Raspberry Pi Pico via its micro USB port. Here’s how I set it up:
