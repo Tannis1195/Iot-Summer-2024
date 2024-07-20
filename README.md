@@ -108,7 +108,7 @@ def main():
         plant_Right_Moist_Level = moist[1]
         plants =[
             ["left",plant_Left_Moist_Level,50],
-            ["right",plant_Left_Moist_Level,50]
+            ["right",plant_Right_Moist_Level,50]
         ]
         water_Level, watering = watering_Of_Plants(plants) # Calculates the water level in the water tank and investigates if the plants need to be watered   
         humidity_Temp = humidity_Temp_Tracker(25) # Calculates both Tempature and Humidity data
